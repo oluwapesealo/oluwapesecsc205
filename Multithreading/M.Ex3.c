@@ -22,7 +22,7 @@ int main()
 	// Let us create three threads
 	for(i = 0; i < 5; i++)
 		pthread_create(&tid, NULL , myThreadAdd, (void *)&tid);
-		pthread_join(tid, NULL);
+		//pthread_join(tid, NULL);
 		pthread_exit(NULL);
 		return 0;
 }

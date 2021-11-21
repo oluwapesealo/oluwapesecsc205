@@ -17,11 +17,9 @@ int main(){
 	scanf("%ld" , &num);
 	int a;
 	pthread_t id;
-	//size_t n;
 	for(a=0; a<num; a++){
-	//	for(n=0; n<num; n++)
 		pthread_create(&id,NULL,mythread, (void *)&id);
-		//pthread_join(id,NULL);
+		pthread_join(id,NULL);
 		}
 	pthread_exit(NULL);
 	return 0;
