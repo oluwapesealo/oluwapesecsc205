@@ -4,6 +4,7 @@
 #include<pthread.h>
 
 int num;
+char 
 void *mythread(void *vargp)
 {
 	int *myid = (int *)vargp;
@@ -23,16 +24,16 @@ void *mythread(void *vargp)
 		printf("What is the student's matric number : \n");
 		scanf("%d", &matricno);
 		printf("Student name : %s %s \n", fname, lname);
-		printf("Thread ID : %d \n", *myid++ );
+		printf("Thread ID : %d \n", *myid);
 		printf("Matric number : %d \n", matricno);
 		//printf("Student name : ");
 		//puts(name);
 	}}
 int main(){
-	int a;
 	pthread_t id;
 	pthread_create(&id,NULL,mythread,(void *)&id);
-	pthread_join(id,NULL);
+	//pthread_join(id,NULL);
+	//pthread_detach(id);
 	pthread_exit(NULL);
 	return 0;
 }

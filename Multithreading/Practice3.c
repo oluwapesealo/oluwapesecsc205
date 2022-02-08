@@ -4,24 +4,41 @@
 #include<pthread.h>
 
 size_t num;
-void *mythread(void *vargp)
-{
-	int *theid = (int *)vargp;
-	char nameofop[20];
-	int a;
-	printf("How many operations to be monitored : ");
-	scanf("%ld" , &num);
-	for(a=0; a<num; a++){
-		printf("Please enter the operation \n: ");
-		scanf("%s", nameofop);
-		printf("Thread ID : %d, Name of operation : %s \n",*theid, 			nameofop);
-	 }
-	 int main(){
-	pthread_t id;
-	pthread_create(&id,NULL,mythread, (void *)&id);
-	pthread_join(id,NULL);		
+char nameofop[30];
+int a;
+int loop;
+int i;
+int n;
+int d;	
+void* mythread(void* body){
+		
+	printf("Thread ID : %ld, Name of operation : %s \n",pthread_self(), 			nameofop);
 	pthread_exit(NULL);
-	return 0;
 }
-}
+/*{
+	int *theid = (int *)bloody;
+	
+	 }*/
+int main(){
+		int payst;
+		printf("Here are a list of examples of problems (Please input in this format with the underscore) :\n Multi_Currency(1)\n User_Experience_Challenges(2)\n Continuous_Updates(3)\n Payment_getwawy_challenges(4)\n Chargeback(5)\n Online_fraud(6)\n");
+		printf("How many operations to be monitored : ");
+			scanf("%ld" , &num);
+		int number = num * 2;
+		pthread_t id[number];
+		for(a=1; a<=num; a++){
+			printf("Please enter the operation %d \n: ", a);
+			scanf("%s", nameofop]);
+			}
+		for(n = 1; n <= num; n++){
+			for(i = 0; i<(n*2); i++){
+				pthread_create(&id[i],NULL,&mythread, (void *) nameofop[n-1]);
+							}	
+						}
+	for(d = 1; d <= num; d++){
+			for(i = 0; i<(d*2); i++){
+				pthread_join(id[i],NULL);
+				}
+			}
 
+}
